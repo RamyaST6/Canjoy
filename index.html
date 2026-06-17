@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PGS CanJoy — Crafted With Love · Served With Joy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #f5ede0;
+  --bglt:     #faf5ee;
+  --surface:  #fff8f0;
+  --card:     #ffffff;
+  --burg:     #8B1A2E;
+  --burg2:    #a82240;
+  --rose:     #C94060;
+  --rosedk:   #9e2f4a;
+  --cream:    #3a2018;
+  --muted:    #8a6a5a;
+  --mutedlt:  #b89a88;
+  --border:   rgba(139,26,46,0.12);
+  --bordersm: rgba(139,26,46,0.07);
+  --saffron:  #d4824a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── ANNOUNCEMENT ── */
+.announcement {
+  background: var(--burg);
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(250,245,238,0.97);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  height: 64px;
+  backdrop-filter: blur(8px);
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+}
+.nav-pgs {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--burg);
+  font-weight: 600;
+}
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1;
+}
+.nav-brand .can { color: var(--burg); }
+.nav-brand .joy { color: var(--burg); }
+
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  cursor: pointer;
+  font-weight: 400;
+}
+.nav-links a:hover { color: var(--burg); }
+
+.nav-cta {
+  background: var(--burg) !important;
+  color: #fff !important;
+  padding: 0.45rem 1.3rem !important;
+  border-radius: 3px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+}
+.nav-cta:hover { background: var(--burg2) !important; opacity: 1 !important; }
+
+/* ── PAGES ── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ══════════════════════════
+   HOME
+══════════════════════════ */
+
+/* Hero */
+.hero {
+  background: var(--bglt);
+  padding: 4rem 5vw 3.5rem;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-pgs {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--burg);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.hero-title .can { color: var(--burg); }
+.hero-title .joy { color: var(--burg); }
+
+.hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.8rem 0;
+  color: var(--burg);
+  font-size: 0.85rem;
+}
+.hero-divider::before,
+.hero-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: var(--border);
+}
+
+.hero-tagline {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  color: var(--cream);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.hero-jars {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: flex-end;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.jar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.jar-lid {
+  border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+  border: 2px solid rgba(139,26,46,0.2);
+  border-bottom: none;
+  background: linear-gradient(180deg, #d4c4a8, #c0b090);
+}
+.jar-body {
+  border-radius: 4px 4px 12px 12px;
+  border: 2px solid rgba(139,26,46,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 0.5rem;
+  gap: 0.2rem;
+}
+.jar-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--burg);
+  letter-spacing: 0.05em;
+}
+.jar-sub {
+  font-size: 0.45rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+.jar-emoji { font-size: 1.5rem; }
+
+.jar.sm .jar-lid { width: 72px; height: 16px; }
+.jar.sm .jar-body { width: 68px; height: 100px; background: linear-gradient(160deg, #f5ede0, #ede0cc); }
+.jar.md .jar-lid { width: 86px; height: 18px; }
+.jar.md .jar-body { width: 82px; height: 130px; background: linear-gradient(160deg, #f0e8d8, #e8d8c0); }
+.jar.lg .jar-lid { width: 100px; height: 20px; }
+.jar.lg .jar-body { width: 96px; height: 160px; background: linear-gradient(160deg, #ece0cc, #e0d0b8); }
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.btn-pri {
+  background: var(--burg);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 3px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-pri:hover { background: var(--burg2); }
+
+.btn-sec {
+  background: transparent;
+  color: var(--burg);
+  padding: 0.8rem 2rem;
+  border: 1.5px solid var(--burg);
+  border-radius: 3px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-sec:hover { background: var(--burg); color: #fff; }
+
+/* USP strip */
+.usp-strip {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.8rem 5vw;
+}
+.usp-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.usp-item {
+  padding: 1.4rem 1rem;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  background: var(--card);
+}
+.usp-item:last-child { border-right: none; }
+.usp-ico { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.usp-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.4;
+}
+
+/* Quick menu preview */
+.home-menu {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 5vw;
+}
+.section-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--burg);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.preview-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.preview-card:hover {
+  border-color: var(--burg);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(139,26,46,0.1);
+}
+.preview-icon { font-size: 2.2rem; margin-bottom: 0.7rem; }
+.preview-cat {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--burg);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.preview-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+/* Occasions */
+.occasions-section {
+  background: var(--burg);
+  padding: 3.5rem 5vw;
+  text-align: center;
+}
+.occ-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: #fff;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+.occ-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.occ-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.occ-icon {
+  width: 60px;
+  height: 60px;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(255,255,255,0.08);
+}
+.occ-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+
+/* ══════════════════════════
+   MENU
+══════════════════════════ */
+.page-header {
+  background: var(--bglt);
+  padding: 3rem 5vw 2.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.page-header-inner { max-width: 1100px; margin: 0 auto; }
+.page-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--burg);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 0.4rem;
+}
+.page-tagline {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: var(--burg);
+}
+
+.menu-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 5vw 5rem;
+}
+
+.menu-section { margin-bottom: 3.5rem; }
+.menu-section:last-child { margin-bottom: 0; }
+
+.msec-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.msec-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.msec-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  white-space: nowrap;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.item-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.2rem 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  transition: all 0.2s;
+}
+.item-card:hover {
+  border-color: var(--burg);
+  box-shadow: 0 4px 16px rgba(139,26,46,0.08);
+  transform: translateY(-2px);
+}
+.item-left { display: flex; align-items: center; gap: 0.8rem; }
+.item-emoji { font-size: 1.4rem; flex-shrink: 0; }
+.item-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.3;
+}
+.item-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--burg);
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.menu-note {
+  margin-top: 3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+.menu-note p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
+
+/* ══════════════════════════
+   ABOUT
+══════════════════════════ */
+.about-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 5vw 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-visual {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.about-jars {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.about-divider {
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--burg), transparent);
+  opacity: 0.3;
+  margin: 0 auto 1.5rem;
+}
+
+.about-quote {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.15rem;
+  color: var(--burg);
+  line-height: 1.6;
+}
+
+.about-vals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.val {
+  background: var(--surface);
+  border: 1px solid var(--bordersm);
+  border-radius: 6px;
+  padding: 1.1rem;
+}
+.val-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+.val-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: var(--cream);
+  margin-bottom: 0.2rem;
+}
+.val-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+
+.about-text { color: var(--muted); font-size: 0.92rem; line-height: 1.9; margin-bottom: 1.1rem; }
+
+/* ══════════════════════════
+   CONTACT
+══════════════════════════ */
+.contact-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 5vw 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-left h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+.contact-left h2 em { font-style: italic; color: var(--burg); }
+.contact-intro { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+
+.contact-items { display: flex; flex-direction: column; gap: 1rem; }
+.ci {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+.ci:hover { border-color: var(--burg); }
+.ci-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--bglt);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.ci-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mutedlt);
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+.ci-val {
+  font-size: 0.95rem;
+  color: var(--cream);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ci-val:hover { color: var(--burg); }
+
+.cf-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2.2rem;
+}
+.cf-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 1.8rem;
+}
+.form-row { margin-bottom: 1.1rem; }
+.form-row label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.form-row input,
+.form-row textarea,
+.form-row select {
+  width: 100%;
+  padding: 0.68rem 0.9rem;
+  background: var(--bglt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--cream);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s;
+  font-weight: 300;
+}
+.form-row input:focus,
+.form-row textarea:focus,
+.form-row select:focus { border-color: var(--burg); }
+.form-row textarea { height: 100px; resize: none; }
+.form-row select option { background: var(--bglt); color: var(--cream); }
+.form-submit {
+  width: 100%;
+  background: var(--burg);
+  color: #fff;
+  border: none;
+  padding: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  margin-top: 0.4rem;
+}
+.form-submit:hover { background: var(--burg2); }
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+footer {
+  background: var(--cream);
+  color: #f5ede0;
+  padding: 0;
+}
+
+.footer-top {
+  padding: 3rem 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-brand .pgs {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245,237,224,0.6);
+  font-weight: 600;
+}
+.footer-brand .name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #f5ede0;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.footer-brand .tagline {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1rem;
+  color: rgba(245,237,224,0.7);
+}
+
+.footer-links-col h4 {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,237,224,0.5);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.footer-links-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-links-col a {
+  color: rgba(245,237,224,0.75);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.footer-links-col a:hover { color: #f5ede0; }
+
+.footer-contact-col h4 {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,237,224,0.5);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+  color: rgba(245,237,224,0.8);
+}
+.footer-contact-item a { color: rgba(245,237,224,0.8); text-decoration: none; }
+.footer-contact-item a:hover { color: #f5ede0; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(245,237,224,0.12);
+  padding: 1.2rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer-copy { font-size: 0.72rem; color: rgba(245,237,224,0.4); }
+.footer-socials { display: flex; gap: 0.6rem; }
+.soc {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(245,237,224,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: rgba(245,237,224,0.6);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.soc:hover { border-color: rgba(245,237,224,0.6); color: #f5ede0; }
+
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media (max-width: 880px) {
+  .preview-grid { grid-template-columns: repeat(2, 1fr); }
+  .usp-inner { grid-template-columns: repeat(2, 1fr); }
+  .usp-item:nth-child(2) { border-right: none; }
+  .usp-item:nth-child(3) { border-top: 1px solid var(--border); }
+  .usp-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+  .about-body { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-body { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-top { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .preview-grid { grid-template-columns: repeat(2, 1fr); }
+  .items-grid { grid-template-columns: 1fr; }
+  .about-vals { grid-template-columns: 1fr; }
+  .hero-jars { gap: 0.8rem; }
+  .nav-links { display: none; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .occ-grid { gap: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="announcement">📞 Order Now: 9392825859 &nbsp;|&nbsp; 📸 @CanJoy_hyd &nbsp;|&nbsp; 🚚 Delivering across Hyderabad</div>
+
+<nav>
+  <span class="nav-logo" onclick="showPage('home')">
+    <span class="nav-pgs">PGS</span>
+    <span class="nav-brand"><span class="can">Can</span><span class="joy">Joy</span></span>
+  </span>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('menu')">Menu</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('contact')" class="nav-cta">Order Now</a></li>
+  </ul>
+</nav>
+
+<!-- ══════ HOME PAGE ══════ -->
+<div id="home" class="page active">
+
+  <div class="hero">
+    <p class="hero-pgs">PGS Presents</p>
+    <h1 class="hero-title"><span class="can">Can</span><span class="joy">Joy</span></h1>
+    <div class="hero-divider">♥</div>
+    <p class="hero-tagline">Crafted with Love &nbsp;•&nbsp; Served with Joy</p>
+
+    <div class="hero-jars">
+      <div class="jar sm">
+        <div class="jar-lid"></div>
+        <div class="jar-body">
+          <span class="jar-emoji">🫐</span>
+          <span class="jar-label">CanJoy</span>
+          <span class="jar-sub">Blueberry</span>
+        </div>
+      </div>
+      <div class="jar lg">
+        <div class="jar-lid"></div>
+        <div class="jar-body">
+          <span class="jar-emoji">🍫</span>
+          <span class="jar-label">CanJoy</span>
+          <span class="jar-sub">Belgian Choc</span>
+        </div>
+      </div>
+      <div class="jar md">
+        <div class="jar-lid"></div>
+        <div class="jar-body">
+          <span class="jar-emoji">🍓</span>
+          <span class="jar-label">CanJoy</span>
+          <span class="jar-sub">Strawberry</span>
+        </div>
+      </div>
+      <div class="jar sm">
+        <div class="jar-lid"></div>
+        <div class="jar-body">
+          <span class="jar-emoji">🌹</span>
+          <span class="jar-label">CanJoy</span>
+          <span class="jar-sub">Rose Punch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-btns">
+      <button class="btn-pri" onclick="showPage('menu')">Pick Your Favourite ♥</button>
+      <button class="btn-sec" onclick="showPage('contact')">Order Now</button>
+    </div>
+  </div>
+
+  <div class="usp-strip">
+    <div class="usp-inner">
+      <div class="usp-item">
+        <div class="usp-ico">🌿</div>
+        <div class="usp-label">Fresh &amp; Quality<br>Ingredients</div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-ico">🛡️</div>
+        <div class="usp-label">Hygienically<br>Packed</div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-ico">🫶</div>
+        <div class="usp-label">No Preservatives<br>Added</div>
+      </div>
+      <div class="usp-item">
+        <div class="usp-ico">🎁</div>
+        <div class="usp-label">Perfect for<br>Every Occasion</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-menu">
+    <p class="section-eyebrow">Pick your favourite</p>
+    <h2 class="section-title">Our Can Collection</h2>
+    <p class="section-sub">Four delicious categories to choose from — each one handcrafted to order with the finest ingredients.</p>
+
+    <div class="preview-grid">
+      <div class="preview-card" onclick="showPage('menu')">
+        <div class="preview-icon">🍰</div>
+        <p class="preview-cat">Category</p>
+        <p class="preview-name">Cheesecakes</p>
+      </div>
+      <div class="preview-card" onclick="showPage('menu')">
+        <div class="preview-icon">🥛</div>
+        <p class="preview-cat">Category</p>
+        <p class="preview-name">Milk Cakes</p>
+      </div>
+      <div class="preview-card" onclick="showPage('menu')">
+        <div class="preview-icon">🍓</div>
+        <p class="preview-cat">Category</p>
+        <p class="preview-name">Classic Fruit &amp; Nut Jars</p>
+      </div>
+      <div class="preview-card" onclick="showPage('menu')">
+        <div class="preview-icon">✨</div>
+        <p class="preview-cat">Category</p>
+        <p class="preview-name">CanJoy Specials</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="occasions-section">
+    <p class="occ-title">Perfect For Every Occasion</p>
+    <div class="occ-grid">
+      <div class="occ-item">
+        <div class="occ-icon">🎂</div>
+        <span class="occ-label">Birthdays</span>
+      </div>
+      <div class="occ-item">
+        <div class="occ-icon">💕</div>
+        <span class="occ-label">Anniversaries</span>
+      </div>
+      <div class="occ-item">
+        <div class="occ-icon">🪔</div>
+        <span class="occ-label">Festivals</span>
+      </div>
+      <div class="occ-item">
+        <div class="occ-icon">🎁</div>
+        <span class="occ-label">Gifting</span>
+      </div>
+      <div class="occ-item">
+        <div class="occ-icon">🎉</div>
+        <span class="occ-label">Celebrations</span>
+      </div>
+      <div class="occ-item">
+        <div class="occ-icon">🎈</div>
+        <span class="occ-label">Special Moments</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════ MENU PAGE ══════ -->
+<div id="menu" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">PGS CanJoy</p>
+      <h1 class="page-title">Pick Your Favourite ♥</h1>
+      <p class="page-tagline">Crafted with Love · Served with Joy</p>
+    </div>
+  </div>
+
+  <div class="menu-body">
+
+    <div class="menu-section">
+      <div class="msec-header">
+        <div class="msec-line"></div>
+        <span class="msec-title">🍰 Cheesecakes</span>
+        <div class="msec-line"></div>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🍪</span><span class="item-name">Lotus Biscoff Cheesecake</span></div>
+          <span class="item-price">₹349</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🍓</span><span class="item-name">Strawberry Cheesecake</span></div>
+          <span class="item-price">₹299</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🫐</span><span class="item-name">Raspberry Cheesecake</span></div>
+          <span class="item-price">₹299</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">💙</span><span class="item-name">Blueberry Cheesecake</span></div>
+          <span class="item-price">₹299</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🍍</span><span class="item-name">Pineapple Cheesecake</span></div>
+          <span class="item-price">₹299</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="msec-header">
+        <div class="msec-line"></div>
+        <span class="msec-title">🥛 Milk Cakes</span>
+        <div class="msec-line"></div>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🍮</span><span class="item-name">Classic Tres Leches</span></div>
+          <span class="item-price">₹299</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🌹</span><span class="item-name">Rose Punch</span></div>
+          <span class="item-price">₹299</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🟢</span><span class="item-name">Pista Delight</span></div>
+          <span class="item-price">₹329</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="msec-header">
+        <div class="msec-line"></div>
+        <span class="msec-title">🍓 Classic Fruit &amp; Nut Jars</span>
+        <div class="msec-line"></div>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🫐</span><span class="item-name">Classic Blueberry Jar</span></div>
+          <span class="item-price">₹279</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🍓</span><span class="item-name">Classic Strawberry Jar</span></div>
+          <span class="item-price">₹279</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🍍</span><span class="item-name">Classic Pineapple Jar</span></div>
+          <span class="item-price">₹279</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="msec-header">
+        <div class="msec-line"></div>
+        <span class="msec-title">✨ CanJoy Specials</span>
+        <div class="msec-line"></div>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🍫</span><span class="item-name">Belgian Chocolate Pot</span></div>
+          <span class="item-price">₹379</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🍪</span><span class="item-name">Lotus Biscoff Cake Pot</span></div>
+          <span class="item-price">₹379</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">🌰</span><span class="item-name">Chocolate Pistachio Pot</span></div>
+          <span class="item-price">₹399</span>
+        </div>
+        <div class="item-card">
+          <div class="item-left"><span class="item-emoji">❤️</span><span class="item-name">Red Velvet Cake Pot</span></div>
+          <span class="item-price">₹349</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-note">
+      <p>All items are handcrafted to order with fresh, quality ingredients and no preservatives. Custom orders, bulk orders and gift hampers available.</p>
+      <button class="btn-pri" onclick="showPage('contact')">Place a Custom Order</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════ ABOUT PAGE ══════ -->
+<div id="about" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Our Story</p>
+      <h1 class="page-title">Born from a love of beautiful desserts</h1>
+      <p class="page-tagline">Made with love, served with joy</p>
+    </div>
+  </div>
+
+  <div class="about-body">
+
+    <div class="about-visual">
+      <div class="about-jars">
+        <div class="jar sm"><div class="jar-lid"></div><div class="jar-body"><span class="jar-emoji">🍓</span><span class="jar-label">CanJoy</span></div></div>
+        <div class="jar lg"><div class="jar-lid"></div><div class="jar-body"><span class="jar-emoji">🍫</span><span class="jar-label">CanJoy</span></div></div>
+        <div class="jar sm"><div class="jar-lid"></div><div class="jar-body"><span class="jar-emoji">🌰</span><span class="jar-label">CanJoy</span></div></div>
+      </div>
+      <div class="about-divider"></div>
+      <p class="about-quote">"Every can holds a moment of joy —<br>crafted by hand, given with love."</p>
+    </div>
+
+    <div>
+      <p class="section-eyebrow" style="margin-bottom:0.5rem">Who we are</p>
+      <h2 class="section-title" style="margin-bottom:1.2rem">A dessert made to be <em style="font-family:'Playfair Display',serif;color:var(--burg)">remembered</em></h2>
+
+      <p class="about-text">PGS CanJoy started with one simple idea: what if a dessert could feel like a gift? We began crafting cheesecakes, milk cakes and indulgent cake pots into beautiful, shareable jars — each one handmade to order with the freshest ingredients and zero preservatives.</p>
+      <p class="about-text">Based in Hyderabad, we take immense pride in our craft. No mass production, no shortcuts. Every jar is made with real love and real care — whether it's going straight to you or to someone very special.</p>
+      <p class="about-text">From birthdays and anniversaries to festivals and gifting — CanJoy is here to make every moment a little sweeter.</p>
+
+      <div class="about-vals">
+        <div class="val">
+          <div class="val-icon">🌿</div>
+          <h4 class="val-title">Fresh Ingredients</h4>
+          <p class="val-desc">Only the finest, freshest ingredients make it into a CanJoy jar.</p>
+        </div>
+        <div class="val">
+          <div class="val-icon">🛡️</div>
+          <h4 class="val-title">Hygienically Packed</h4>
+          <p class="val-desc">Every jar is packed with care and clean processes, every single time.</p>
+        </div>
+        <div class="val">
+          <div class="val-icon">🚫</div>
+          <h4 class="val-title">No Preservatives</h4>
+          <p class="val-desc">Pure, natural flavours — nothing artificial, nothing added.</p>
+        </div>
+        <div class="val">
+          <div class="val-icon">🎁</div>
+          <h4 class="val-title">Perfect for Gifting</h4>
+          <p class="val-desc">Beautiful packaging designed to delight — for every occasion.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════ CONTACT PAGE ══════ -->
+<div id="contact" class="page">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Get in touch</p>
+      <h1 class="page-title">Let's make something sweet</h1>
+      <p class="page-tagline">Order online, ask about custom gifts or bulk orders</p>
+    </div>
+  </div>
+
+  <div class="contact-body">
+
+    <div class="contact-left">
+      <h2>Ready to <em>order?</em></h2>
+      <p class="contact-intro">Place your order, enquire about custom jars, bulk orders for events, or festive gift hampers. We're always happy to help!</p>
+
+      <div class="contact-items">
+        <div class="ci">
+          <div class="ci-icon">📱</div>
+          <div>
+            <div class="ci-label">WhatsApp / Call</div>
+            <a class="ci-val" href="tel:9392825859">9392825859</a>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">📸</div>
+          <div>
+            <div class="ci-label">Instagram</div>
+            <a class="ci-val" href="#">@CanJoy_hyd</a>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">📧</div>
+          <div>
+            <div class="ci-label">Email</div>
+            <a class="ci-val" href="mailto:hello@canjoy.in">hello@canjoy.in</a>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-label">Based in</div>
+            <span class="ci-val">Hyderabad, India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cf-box">
+      <h3 class="cf-title">Send an order enquiry</h3>
+
+      <div class="form-row">
+        <label>Your name</label>
+        <input type="text" placeholder="e.g. Priya Sharma">
+      </div>
+      <div class="form-row">
+        <label>WhatsApp number</label>
+        <input type="tel" placeholder="+91 98765 43210">
+      </div>
+      <div class="form-row">
+        <label>What are you ordering?</label>
+        <select>
+          <option value="">Select a category...</option>
+          <optgroup label="Cheesecakes">
+            <option>Lotus Biscoff Cheesecake — ₹349</option>
+            <option>Strawberry Cheesecake — ₹299</option>
+            <option>Raspberry Cheesecake — ₹299</option>
+            <option>Blueberry Cheesecake — ₹299</option>
+            <option>Pineapple Cheesecake — ₹299</option>
+          </optgroup>
+          <optgroup label="Milk Cakes">
+            <option>Classic Tres Leches — ₹299</option>
+            <option>Rose Punch — ₹299</option>
+            <option>Pista Delight — ₹329</option>
+          </optgroup>
+          <optgroup label="Classic Fruit &amp; Nut Jars">
+            <option>Classic Blueberry Jar — ₹279</option>
+            <option>Classic Strawberry Jar — ₹279</option>
+            <option>Classic Pineapple Jar — ₹279</option>
+          </optgroup>
+          <optgroup label="CanJoy Specials">
+            <option>Belgian Chocolate Pot — ₹379</option>
+            <option>Lotus Biscoff Cake Pot — ₹379</option>
+            <option>Chocolate Pistachio Pot — ₹399</option>
+            <option>Red Velvet Cake Pot — ₹349</option>
+          </optgroup>
+          <option value="custom">Custom / Bulk Order</option>
+          <option value="gift">Gift Hamper Enquiry</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Quantity &amp; occasion</label>
+        <textarea placeholder="e.g. 5 jars for a birthday — any special requests, dietary needs or delivery details..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit()">Send Enquiry →</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="pgs">PGS</div>
+      <div class="name">CanJoy</div>
+      <div class="tagline">Crafted with Love · Served with Joy</div>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('menu')">Menu</a></li>
+        <li><a onclick="showPage('about')">About Us</a></li>
+        <li><a onclick="showPage('contact')">Order Now</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>Menu</h4>
+      <ul>
+        <li><a onclick="showPage('menu')">Cheesecakes</a></li>
+        <li><a onclick="showPage('menu')">Milk Cakes</a></li>
+        <li><a onclick="showPage('menu')">Fruit &amp; Nut Jars</a></li>
+        <li><a onclick="showPage('menu')">CanJoy Specials</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">📱 <a href="tel:9392825859">9392825859</a></div>
+      <div class="footer-contact-item">📸 <a href="#">@CanJoy_hyd</a></div>
+      <div class="footer-contact-item">📍 Hyderabad, India</div>
+    </div>
+  </div>
+
+  <div style="border-top:1px solid rgba(245,237,224,0.1); margin: 0 5vw;"></div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 PGS CanJoy. All rights reserved. Made with love in Hyderabad 🤍</span>
+    <div class="footer-socials">
+      <a class="soc" title="Instagram">📸</a>
+      <a class="soc" title="WhatsApp">💬</a>
+      <a class="soc" title="Phone">📞</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) { el.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+}
+
+function handleSubmit() {
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = '✓ Sent! We\'ll WhatsApp you soon.';
+  btn.style.background = '#5a9e6e';
+  setTimeout(() => {
+    btn.textContent = 'Send Enquiry →';
+    btn.style.background = '';
+  }, 4000);
+}
+</script>
+
+</body>
+</html>
